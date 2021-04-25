@@ -7,19 +7,15 @@ import speech_recognition as sr
 # text to speech engine
 tts_engine = pyttsx3.init()
 
-# rate
-rate = tts_engine.getProperty('rate')   
-print (rate)                       
-tts_engine.setProperty('rate', 210)
+# rate                 
+tts_engine.setProperty('rate', 215)
 
-# volume
-volume = tts_engine.getProperty('volume')  
-print (volume)                       
-tts_engine.setProperty('volume',1.25)    
+# volume                
+tts_engine.setProperty('volume',1.5)    
 
 # type 
-# voices = tts_engine.getProperty('voices')     
-
+voices = tts_engine.getProperty('voices')
+tts_engine.setProperty("voice", voices[16].id)
 
 # speech recognition
 r = sr.Recognizer()
@@ -34,7 +30,7 @@ with sr.Microphone() as source:
     except:
         print("Could not recognize")
 
-"""
+
 #getting the number of words in the string
 words = text.split()
 
@@ -74,6 +70,6 @@ else:
     wiki_search = wikipedia.search(text)
     tts_engine.say("This is what I found on Wikipedia, {}".format(wiki_search))
     tts_engine.runAndWait()
-"""
+
 
 
